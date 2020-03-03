@@ -17,10 +17,18 @@ export class MapData
     }
     
     GetCell = (X : number, Y : number) : Cell | undefined=>{
+        if(this.Data[X] == undefined)
+        {
+            console.warn(`${X} is not a valid slot in the Data array.`);
+            return undefined;
+        }
         if(this.Data[X][Y] != undefined)
         {
             return this.Data[X][Y];
         }
+        console.warn(`${X}, ${Y} is not a valid slot in the Data array.`);
         return undefined;
     }
+
+
 }
